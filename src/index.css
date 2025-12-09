@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Bowl&family=Barlow:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+
+    --primary: 6 93% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 100% 50%;
+    --secondary-foreground: 220 13% 13%;
+
+    --muted: 210 17% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 43 100% 50%;
+    --accent-foreground: 220 13% 13%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 6 93% 64%;
+
+    --radius: 0.75rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(6 93% 64%) 0%, hsl(15 90% 58%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(220 26% 8%) 0%, hsl(220 20% 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(43 100% 50%) 0%, hsl(38 100% 55%) 100%);
+
+    --shadow-elegant: 0 10px 40px -10px hsl(6 93% 64% / 0.3);
+    --shadow-soft: 0 4px 20px -2px hsl(220 13% 13% / 0.1);
+
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 26% 8%;
+    --foreground: 210 17% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 17% 95%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 17% 95%;
+
+    --primary: 6 93% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 100% 50%;
+    --secondary-foreground: 220 26% 8%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 43 100% 50%;
+    --accent-foreground: 220 26% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 6 93% 64%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Barlow', sans-serif;
+    font-feature-settings: "kern";
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  .section-padding-compact {
+    @apply py-8 md:py-12 lg:py-16;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
